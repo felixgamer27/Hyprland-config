@@ -18,16 +18,13 @@ hl.config({
         accel_profile = "adaptative",
         touchpad = {
             natural_scroll = true,
+            scroll_factor = 0.2,
         },
 
     },
 })
 
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
-})
+-- Gestures are now in gestures.lua
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
