@@ -3,6 +3,9 @@
 -----------------------
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
+
+-- hyprbar config is in hyprbar.lua
+
 hl.config({
     general = {
         gaps_in  = 0,
@@ -22,7 +25,7 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "dwindle",
+        layout = "monocle",
     },
 
     decoration = {
@@ -58,14 +61,12 @@ hl.config({
             color = "#00AAFF"
         },
 
---------------------------------------
--- Requires update, module disabled --
---------------------------------------
---        motion_blur = {           --
---            enabled = true,       --
---            samples = 7           --
---        }                         --
---------------------------------------
+
+        motion_blur = {           
+            enabled = true,       
+            samples = 7           
+        }                         
+
 
     },
 
