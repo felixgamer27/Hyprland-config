@@ -6,7 +6,7 @@
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 -- Example window rules that are useful
-
+--[[
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",
@@ -14,8 +14,8 @@ local suppressMaximizeRule = hl.window_rule({
 
     suppress_event = "maximize",
 })
--- suppressMaximizeRule:set_enabled(false)
-
+suppressMaximizeRule:set_enabled(false)
+]]
 hl.window_rule({
     -- Fix some dragging issues with XWayland
     name  = "fix-xwayland-drags",
@@ -46,4 +46,58 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+--[[
+hl.window_rule({
+  name = "float-windows",
+  match = {
+    float = false
+  },
+  float = true,
+  move = {"cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)"},
+})
+]]
+
+hl.window_rule({
+  name = "float-pavucontrol",
+  match = {
+    class = "org.pulseaudio.pavucontrol"
+  },
+  float = true,
+  size = {"600", "400"},
+  move = {767, 328},
+})
+
+hl.window_rule({
+  name = "small-floats",
+  match = {
+    float = true,
+  },
+  size = {"800", "600"},
+})
+
+-- Hyprbars rules --
+
+hl.window_rule({
+  name = "no-bar-opera",
+  match = {
+    class = "Opera GX",
+  },
+  ["hyprbars:no_bar"] = true
+})
+
+hl.window_rule({
+  name = "no-bar-vscode",
+  match = {
+    class = "visual-studio-code-electron",
+  },
+  ["hyprbars:no_bar"] = true
+})
+
+hl.window_rule({
+  name = "no-bar-lutris",
+  match = {
+    class = "lutris",
+  },
+  ["hyprbars:no_bar"] = true
 })
